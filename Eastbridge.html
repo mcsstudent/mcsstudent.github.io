@@ -1,4 +1,59 @@
 <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Seattle Bicycles</title>
+    <link rel="stylesheet" href="style.css">
+     <style>
+     body{
+     margin:0;
+     padding:0;
+     font-family:arial;
+     color:black;
+     background:#f3f3f3;
+     }
+     h2{
+     color:white;
+     }
+      .container{
+      max-width:960px;
+      width:96%;
+      margin:auto;
+      }
+      nav{
+      float:left;
+      line-height:70px;
+      }
+      nav li{
+      display:inline-block;
+      padding: 5px 20px;
+      margin-left:10px;
+      background: #f3f3f3;
+      line-height:normal;
+      }
+li>a:hover{
+background:skyblue;color:#333;}
+      header{
+      background:#fff;
+      margin-bottom:20px;
+      overflow:hidden;
+      }
+      .content h2{
+      background:skyblue;
+      padding:10px;
+      border-radius:5px;
+      margin-bottom:20px;
+      }
+      .content article{
+      float:Left;
+text-align:center;
+      width:900px;
+       max-width:960px;
+       margin:auto;
+      }
+    </style>
+  </head>
+  
 
 <html>
     <meta charset="utf-8">
@@ -40,7 +95,17 @@ div.tooltip {
 </style>
 <body>
 
-
+  <header>
+  <div class="container">  
+  
+  <nav>
+  <li><a href="index.html"> Home</a></li>
+  <li><a href="About.html">About Visualization</a></li>
+  <li><a href="Eastbridge.html">East sidewalk</a></li>
+  <li><a href="Westbridge.html">West sidewalk</a></li>
+  </nav>
+  </div>
+</header>
 <p>
   <b>Scene 1(East walkway: Number of bicycles that crossed the Fremont bridge through east walkway between 2012 and 2016.</b></p>
 <ul>
@@ -50,7 +115,7 @@ div.tooltip {
   <li align = "left">There is a significant spike notable in 2013 and from then onwards gradual increase in number of bycycles crossing the bridge through east walkway.</li>
   </ul>
   
-<script src="http://d3js.org/d3.v3.min.js"></script>
+ <script src="http://d3js.org/d3.v3.min.js"></script>
 
 <script>
 
@@ -175,5 +240,3 @@ d3.csv("https://raw.githubusercontent.com/sviji06/middleman-static-d3/master/Eas
 </script>
 </body>
 </html>
-
-
