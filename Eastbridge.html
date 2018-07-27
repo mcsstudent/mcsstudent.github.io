@@ -41,16 +41,29 @@ div.tooltip {
 <body>
 
 
+<p>
+  <b>Scene 1(East walkway: Number of bicycles that crossed the Fremont bridge through east walkway between 2012 and 2016.</b></p>
+<ul>
+  <li align = "left">presented by line graph. Year in x-axis and number of bicycles in y-axis.</li> 
+  <li align = "left">Scatter plots are used to highlight the x and y axis points for the year between 2012 and 2016.</li>
+  <li align = "left">Tooltips are added to provide specific number of bicycles crossed that year.</li>
+  <li align = "left">There is a significant spike notable in 2013 and from then onwards gradual increase in number of bycycles crossing the bridge through east walkway.</li>
+  </ul>
+  
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
 <script>
 
 
-var margin = {top: 30, right: 20, bottom: 30, left: 50},
+var margin = {top: 5, right: 70, bottom: 60, left: 60},
     width = 500 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    height = 400 - margin.top - margin.bottom;
 
+var xAxisLabelText = "Year";
+      var xAxisLabelOffset = 99;
 
+      var yAxisLabelText = "Bicycles";
+      var yAxisLabelOffset = 48;
 
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
@@ -87,6 +100,27 @@ var svg = d3.select("body")
         .attr("transform", 
               "translate(" + margin.left + "," + margin.top + ")");
 
+
+// axis-label
+
+var xAxisG = svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + (height - margin.top - margin.bottom) + ")")
+      var xAxisLabel = xAxisG.append("text")
+        .style("text-anchor", "middle")
+        .attr("transform", "translate(" + ((width - margin.left - margin.right) / 2) + "," + xAxisLabelOffset + ")")
+        .attr("class", "label")
+        .text(xAxisLabelText);
+
+      var yAxisG = svg.append("g")
+        .attr("class", "y axis");
+      var yAxisLabel = yAxisG.append("text")
+        .style("text-anchor", "middle")
+        .attr("transform", "translate(-" + yAxisLabelOffset + "," + (height / 2) + ") rotate(-90)")
+        .attr("class", "label")
+        .text(yAxisLabelText);
+        
+        
 // Get the data
 d3.csv("https://raw.githubusercontent.com/sviji06/middleman-static-d3/master/East_bicycles.csv", function(error, data) {
     data.forEach(function(d) {
@@ -141,3 +175,5 @@ d3.csv("https://raw.githubusercontent.com/sviji06/middleman-static-d3/master/Eas
 </script>
 </body>
 </html>
+
+
